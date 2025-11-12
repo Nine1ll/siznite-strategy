@@ -149,8 +149,8 @@ function App() {
             borderRadius: '4px',
             fontSize: '13px'
           }}>
-            <strong>게임에서 현재 위치를 입력하고,</strong><br/>
-            <strong>추천 버튼을 클릭하면</strong> 다음 선택지를 알려드립니다.
+            <strong>게임과 같은 버튼을 선택하고</strong><br/>
+            <strong>현재 위치</strong>를 입력하면 다음 선택지를 알려드립니다.
           </div>
 
           {/* 단계별 안내 */}
