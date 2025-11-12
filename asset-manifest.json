@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/siznite-strategy/static/css/main.2b90dff1.css",
+    "main.js": "/siznite-strategy/static/js/main.274e4cac.js",
+    "index.html": "/siznite-strategy/index.html",
+    "main.2b90dff1.css.map": "/siznite-strategy/static/css/main.2b90dff1.css.map",
+    "main.274e4cac.js.map": "/siznite-strategy/static/js/main.274e4cac.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2b90dff1.css",
+    "static/js/main.274e4cac.js"
+  ]
+}
