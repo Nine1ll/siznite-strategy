@@ -384,3 +384,97 @@ body.dark-mode .info-box {
   background-color: #1e293b;
   color: #cbd5e1;
 }
+
+.result-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.result-modal {
+  background: #f9fafb;
+  padding: 24px 28px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+  max-width: 320px;
+  width: 90%;
+  text-align: center;
+}
+
+.result-modal.dark {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+.result-modal h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.result-btn {
+  margin-top: 16px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background: #3b82f6;
+  color: white;
+}
+
+.result-modal.dark .result-btn {
+  background: #60a5fa;
+}
+
+.pos-box.clickable {
+  cursor: pointer;
+}
+
+.pos-box.start-pos {
+  border-style: dashed;
+  opacity: 0.85;
+}
+
+
+.log-panel {
+  margin: 16px auto;
+  max-width: 600px;
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #e5e7eb;
+  font-size: 13px;
+}
+
+.App.dark .log-panel {
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.App:not(.dark) .log-panel {
+  background: #e5e7eb;
+  color: #0f172a;
+}
+
+.log-panel h3 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+}
+
+.log-panel ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.log-panel li {
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.log-panel li:last-child {
+  border-bottom: none;
+}
