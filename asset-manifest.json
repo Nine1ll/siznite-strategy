@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/siznite-strategy/static/css/main.43d04f83.css",
-    "main.js": "/siznite-strategy/static/js/main.2c1b643e.js",
+    "main.js": "/siznite-strategy/static/js/main.3ede7842.js",
     "index.html": "/siznite-strategy/index.html",
     "main.43d04f83.css.map": "/siznite-strategy/static/css/main.43d04f83.css.map",
-    "main.2c1b643e.js.map": "/siznite-strategy/static/js/main.2c1b643e.js.map"
+    "main.3ede7842.js.map": "/siznite-strategy/static/js/main.3ede7842.js.map"
   },
   "entrypoints": [
     "static/css/main.43d04f83.css",
-    "static/js/main.2c1b643e.js"
+    "static/js/main.3ede7842.js"
   ]
 }
