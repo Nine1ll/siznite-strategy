@@ -181,6 +181,6 @@ for (pos, turns, b_left, c_left, mode), options in policy_table.items():
     )
 
 with open("../src/data/culculated_prob.json", "w", encoding="utf-8") as f:
-  json.dump(json_list, f, ensure_ascii=False, indent=2)
+    json.dump(json_list, f, ensure_ascii=False, indent=2)
 
 print("✅ 'culculated_prob.json' 생성 완료!")
