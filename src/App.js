@@ -48,7 +48,9 @@ function App() {
   useEffect(() => {
     if (isGameOver) return;
 
-    const effectivePos = turnsLeft === 8 ? 0 : pos;
+    const initialTurns = getInitialTurns(mode);           // 🔹 모드별 초기 턴
+    const effectivePos = turnsLeft === initialTurns ? 0 : pos;
+
     const bLeft = 3 - bUsed;
     const cLeft = 3 - cUsed;
     const key = `${effectivePos}_${turnsLeft}_${bLeft}_${cLeft}_${mode}`;
@@ -77,7 +79,8 @@ function App() {
     if (!pendingAction) return; // 행동 안 고르면 로그 X
 
     const action = pendingAction;
-    const turnNumber = 9 - turnsLeft;
+    const total = getInitialTurns(mode);
+    const turnNumber = total - turnsLeft + 1;
 
     setLogs((prev) => [
       ...prev,
@@ -110,16 +113,17 @@ function App() {
   };
 
   const handleReset = (overrideMode) => {
-  const m = overrideMode ?? mode;
-  const turnsInit = m === "super_epic" ? 8 : 7;
+    // 문자열로 들어온 경우만 모드로 인정, 그 외(이벤트 객체 등)는 현재 mode 사용
+    const m = typeof overrideMode === "string" ? overrideMode : mode;
+    const turnsInit = getInitialTurns(m);
 
-  setPos(0);
-  setTurnsLeft(turnsInit);
-  setBUsed(0);
-  setCUsed(0);
-  setLogs([]);
-  setResult(null);
-  setPendingAction(null);
+    setPos(0);
+    setTurnsLeft(turnsInit);
+    setBUsed(0);
+    setCUsed(0);
+    setLogs([]);
+    setResult(null);
+    setPendingAction(null);
   };
 
   const handleModeChange = (e) => {
