@@ -12,15 +12,20 @@ import { ACTION_LABEL } from "./constants/actionLabels";
 
 import "./App.css";
 
+const getInitialTurns = (mode) => (mode === "super_epic" ? 8 : 7);
+
 function App() {
   const { darkMode, toggleDarkMode } = useContext(ThemeContext);
   const [showHelp, setShowHelp] = useState(false);
 
   // 기본 모드: 상급
   const [mode, setMode] = useState("super_epic");
+  // const initialTurns = mode === "super_epic" ? 8 : 7;
+  // 🔹 모드에 따라 초기 턴 수 세팅
+  const [turnsLeft, setTurnsLeft] = useState(getInitialTurns("super_epic"));
 
   const [pos, setPos] = useState(0);
-  const [turnsLeft, setTurnsLeft] = useState(8);
+  // const [turnsLeft, setTurnsLeft] = useState(initialTurns);
   const [bUsed, setBUsed] = useState(0);
   const [cUsed, setCUsed] = useState(0);
 
@@ -35,6 +40,9 @@ function App() {
 
   const maxPosition = mode === "unique" ? 17 : 16;
   const modeLabel = mode === "super_epic" ? "슈퍼에픽" : "유니크";
+
+  // 🔹 화면에 보여줄 총 턴 수
+  const totalTurns = getInitialTurns(mode);
 
   // --- 확률 계산 ---
   useEffect(() => {
@@ -101,20 +109,23 @@ function App() {
     setPendingAction(action);
   };
 
-  const handleReset = () => {
-    setPos(0);
-    setTurnsLeft(8);
-    setBUsed(0);
-    setCUsed(0);
-    setLogs([]);
-    setResult(null);
-    setPendingAction(null);
+  const handleReset = (overrideMode) => {
+  const m = overrideMode ?? mode;
+  const turnsInit = m === "super_epic" ? 8 : 7;
+
+  setPos(0);
+  setTurnsLeft(turnsInit);
+  setBUsed(0);
+  setCUsed(0);
+  setLogs([]);
+  setResult(null);
+  setPendingAction(null);
   };
 
   const handleModeChange = (e) => {
     const nextMode = e.target.value;
     setMode(nextMode);
-    handleReset();
+    handleReset(nextMode);   // 모드에 맞게 턴 수 다시 세팅
   };
 
   return (
@@ -175,7 +186,7 @@ function App() {
         </div>
         <div className="state-item">
           <div className="state-label">⏳ 남은 턴</div>
-          <div className="state-value">{turnsLeft} / 8</div>
+          <div className="state-value">{turnsLeft} / {totalTurns}</div>
         </div>
         <div className="state-item">
           <div className="state-label">세공하기 사용</div>
